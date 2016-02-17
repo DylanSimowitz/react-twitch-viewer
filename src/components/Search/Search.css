@@ -1,0 +1,10 @@
+.search-component {
+  display: flex;
+  .add-streamer {
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  .fa-plus {
+    color: #ffffff;
+  }
+}
