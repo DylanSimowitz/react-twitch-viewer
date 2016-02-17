@@ -1,22 +1,31 @@
 require('normalize.css');
+require('font-awesome-webpack');
 require('./App.css');
 
 import React from 'react';
-
-let yeomanImage = require('../../images/yeoman.png');
+import Header from '../Header/Header';
+import Main from '../Main/Main';
+import actionCreators from '../../actions/streamerActions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 class App extends React.Component {
   render() {
     return (
       <div className="index">
-        <img src={yeomanImage} alt="Yeoman Generator" />
-        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
+        <Header addStreamer={this.props.actions.addStreamer}/>
+        <Main streamers={this.props.streamers} removeStreamer={this.props.actions.removeStreamer}/>
       </div>
     );
   }
 }
 
-App.defaultProps = {
-};
+function mapStateToProps(state) {
+  return state
+}
 
-export default App;
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(actionCreators, dispatch) }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
