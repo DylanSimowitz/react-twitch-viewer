@@ -1,0 +1,45 @@
+.stream-component {
+  padding: 10px;
+  position: relative;
+  margin-bottom: 25px;
+  background-color: #fff;
+  box-shadow: inset 0px 0px 12px #aaa;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  .stream-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+  }
+  .stream-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 5px;
+  }
+  .stream-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+  }
+  .stream-info {
+    margin-left: 5px;
+    font-size: 0.8rem;
+    .stream-stats {
+      margin-top: 5px;
+    }
+  }
+  .stream-remove {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    cursor: not-allowed;
+    .fa-circle {
+      color: #fff;
+      box-shadow: inset 0px 0px 10px #aaa;
+      border-radius: 50%;
+    }
+    .fa-minus {
+      color: #aaa;
+    }
+  }
+}

@@ -1,5 +1,8 @@
 /* Base Application Styles */
+html,
+body,
+#app,
 .index {
-  width: 50%;
-  margin: 0 auto;
+  height: 100%;
+  background-color: #eeeeee;
 }

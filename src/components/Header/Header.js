@@ -3,7 +3,6 @@
 import React from 'react';
 import Search from '../Search/Search';
 
-
 require('./Header.css');
 
 class Header extends React.Component {
@@ -13,7 +12,7 @@ class Header extends React.Component {
         <div className="logo">
           <img src="http://s.jtvnw.net/jtv_user_pictures/hosted_images/Twitch_BlackLogo.png" alt="Twitch Logo"/>
         </div>
-        <Search addStreamer={this.props.addStreamer}/>
+        <Search/>
       </div>
     );
   }

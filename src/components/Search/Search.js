@@ -1,12 +1,26 @@
 'use strict';
 
 import React from 'react';
+import { addUser } from '../../actions/UserActions'
+import { connect } from 'react-redux'
 
 require('./Search.css');
 
 class Search extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      name: ''
+    }
+  }
+  clearInput() {
+    this.setState({
+      name: ''
+    })
+  }
   handleClick() {
-    this.props.addStreamer(this.state.name)
+    this.props.dispatch(addUser(this.state.name))
+    this.clearInput()
   }
   handleChange(event) {
     this.setState({
@@ -15,7 +29,8 @@ class Search extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault()
-    this.props.addStreamer(this.state.name)
+    this.props.dispatch(addUser(this.state.name))
+    this.clearInput()
   }
   render() {
     return (
@@ -26,7 +41,7 @@ class Search extends React.Component {
             <i className="fa fa-plus fa-stack-1x"></i>
           </span>
         </div>
-        <input type="text" onChange={this.handleChange.bind(this)}/>
+        <input type="text" value={this.state.name} onChange={this.handleChange.bind(this)}/>
       </form>
     );
   }
@@ -38,4 +53,4 @@ Search.displayName = 'Search';
 // Search.propTypes = {};
 // Search.defaultProps = {};
 
-export default Search;
+export default connect()(Search);

@@ -5,7 +5,7 @@ require('./App.css');
 import React from 'react';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import actionCreators from '../../actions/streamerActions'
+import actionCreators from '../../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -13,8 +13,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="index">
-        <Header addStreamer={this.props.actions.addStreamer}/>
-        <Main streamers={this.props.streamers} removeStreamer={this.props.actions.removeStreamer}/>
+        <Header/>
+        <Main streams={this.props.streams} channels={this.props.channels} featured={this.props.featured}/>
       </div>
     );
   }
