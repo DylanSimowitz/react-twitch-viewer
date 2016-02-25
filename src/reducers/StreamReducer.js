@@ -1,8 +1,7 @@
-
-
 module.exports = function(streams = [], action) {
   function streamExists() {
-    if (streams.filter(stream => {return stream._id === action.id}).length > 0) {
+    let duplicates = streams.filter(stream => {return stream._id === action.id})
+    if (duplicates.length > 0) {
       return true
     }
     return false
@@ -21,6 +20,17 @@ module.exports = function(streams = [], action) {
       return streams.filter(stream => {
         return stream._id !== action.id
       })
+    }
+    case 'UPDATE_STREAM': {
+      return streams.map(stream => {
+        if (stream._id === action.stream._id) {
+          return stream = action.stream
+        }
+        return stream
+      })
+    }
+    case 'UPDATE_STREAMS': {
+      return action.streams
     }
     default: {
       return streams;

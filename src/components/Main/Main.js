@@ -16,19 +16,20 @@ class Main extends React.Component {
     return (
       <div className="main-component">
         <div className="streams">
+          <h2>Streams</h2>
+          <CSSTransitionGroup transitionName="stream-transition" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
           {this.props.streams.map(stream => {
             return <Stream key={stream._id} stream={stream}/>
           })}
+          </CSSTransitionGroup>
         </div>
         <div className="stream-embed">
           <SelectedStream channel={this.props.featured}/>
         </div>
         <div className="channels">
-          <CSSTransitionGroup transitionName="stream-transition" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
           {this.props.channels.map(channel => {
             return <Channel key={channel._id} channel={channel}/>
           })}
-        </CSSTransitionGroup>
         </div>
       </div>
     );

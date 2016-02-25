@@ -12,3 +12,10 @@ export function removeChannel(id) {
     id
   })
 }
+
+export function updateChannels(channels) {
+  return({
+    type: 'UPDATE_CHANNELS',
+    channels
+  })
+}

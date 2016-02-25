@@ -20,6 +20,9 @@ module.exports = function(channels = [], action) {
         return channel._id !== action.id
       })
     }
+    case 'UPDATE_CHANNELS': {
+      return action.channels
+    }
     default: {
       return channels;
     }

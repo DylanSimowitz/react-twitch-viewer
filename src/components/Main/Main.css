@@ -3,7 +3,7 @@
   height: 90%;
   display: flex;
   .streams {
-    width: 20%;
+    min-width: 300px;
     height: 100%;
     padding: 5px;
   }
@@ -13,20 +13,4 @@
   .channels {
     width: 20%;
   }
-}
-.stream-transition-enter {
-  opacity: 0.01;
-}
-.stream-transition-enter.stream-transition-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.stream-transition-leave {
-  opacity: 1;
-}
-
-.stream-transition-leave.stream-transition-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
 }
